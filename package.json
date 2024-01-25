@@ -1,7 +1,7 @@
 {
   "name": "fakestore-project",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.1.0",
+    "@vercel/speed-insights": "^1.0.7",
     "axios": "^1.6.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
