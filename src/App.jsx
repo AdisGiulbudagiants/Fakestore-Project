@@ -1,10 +1,29 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { lazy } from 'react'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
+const NavbarLayout = lazy(() => import('./layouts/NavbarLayout.jsx'))
+const AllPage = lazy(() => import('./pages/AllPage.jsx'))
+const ClothesPage = lazy(() => import('./pages/ClothesPage.jsx'))
+const ElectronicsPage = lazy(() => import('./pages/ElectronicsPage.jsx'))
+const FurniturePage = lazy(() => import('./pages/FurniturePage.jsx'))
+const ShoesPage = lazy(() => import('./pages/ShoesPage.jsx'))
+const MiscellaneousPage = lazy(() => import('./pages/MiscellaneousPage.jsx'))
 
 function App() {
   return (
-    <div>
-      <SpeedInsights />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<NavbarLayout />}>
+            <Route index path="/" element={<AllPage />} />
+            <Route path="/clothes" element={<ClothesPage />} />
+            <Route path="/electronics" element={<ElectronicsPage />} />
+            <Route path="furniture" element={<FurniturePage />} />
+            <Route path="/shoes" element={<ShoesPage />} />
+            <Route path="/miscellaneous" element={<MiscellaneousPage />} />
+          </Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
