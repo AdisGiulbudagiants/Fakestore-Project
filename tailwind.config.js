@@ -2,6 +2,10 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    },
+    fontWeight: { regular: '400', medium: '500', semibold: '600', bold: '700' },
     extend: {},
   },
   plugins: [],
