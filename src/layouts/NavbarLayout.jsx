@@ -1,11 +1,12 @@
 import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar/Navbar'
 
 const NavbarLayout = () => {
   return (
-    <div>
-      NavbarLayout
-      <Suspense fallback={<h1>Loading...</h1>}>
+    <div className=" bg-purple-700">
+      <Navbar />
+      <Suspense fallback={<h1 className="flex justify-end">Loading...</h1>}>
         <Outlet />
       </Suspense>
     </div>

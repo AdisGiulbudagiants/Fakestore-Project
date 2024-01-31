@@ -1,5 +1,29 @@
 const AllPage = () => {
-  return <div>AllPage</div>
+  return (
+    <div className="bg-black">
+      AllPage
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+      <div>HELLO</div>
+    </div>
+  )
 }
 
 export default AllPage
