@@ -11,7 +11,7 @@ const MiscellaneousPage = lazy(() => import('./pages/MiscellaneousPage.jsx'))
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="h-[100%] bg-black">
         <Routes>
           <Route path="/" element={<NavbarLayout />}>
             <Route index path="/" element={<AllPage />} />
@@ -20,6 +20,7 @@ function App() {
             <Route path="furniture" element={<FurniturePage />} />
             <Route path="/shoes" element={<ShoesPage />} />
             <Route path="/miscellaneous" element={<MiscellaneousPage />} />
+            <Route path="*" element={<h1>NOT FOUND</h1>} />
           </Route>
         </Routes>
       </div>
