@@ -26,7 +26,7 @@ const allPageSlice = createSlice({
   initialState,
   reducers: {
     addLimit: (state, action) => {
-      state.limit = state.limit + action.payload
+      state.limit = state.limit + 4
     },
   },
   extraReducers: (builder) => {
@@ -46,8 +46,7 @@ const allPageSlice = createSlice({
 export const { addLimit } = allPageSlice.actions
 
 export const selectProducts = (state) => state.allPage.products
-export const selectisLoadingViaAPI = (state) => state.allPage.isLoadingViaAPI
-export const selectOffset = (state) => state.allPage.offset
+export const selectIsLoadingViaAPI = (state) => state.allPage.isLoadingViaAPI
 export const selectLimit = (state) => state.allPage.limit
 
 export default allPageSlice.reducer
