@@ -7,11 +7,12 @@ const ElectronicsPage = lazy(() => import('./pages/ElectronicsPage.jsx'))
 const FurniturePage = lazy(() => import('./pages/FurniturePage.jsx'))
 const ShoesPage = lazy(() => import('./pages/ShoesPage.jsx'))
 const MiscellaneousPage = lazy(() => import('./pages/MiscellaneousPage.jsx'))
+const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="h-[100%] bg-black">
+      <div>
         <Routes>
           <Route path="/" element={<NavbarLayout />}>
             <Route index path="/" element={<AllPage />} />
@@ -20,7 +21,7 @@ function App() {
             <Route path="furniture" element={<FurniturePage />} />
             <Route path="/shoes" element={<ShoesPage />} />
             <Route path="/miscellaneous" element={<MiscellaneousPage />} />
-            <Route path="*" element={<h1>NOT FOUND</h1>} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </div>

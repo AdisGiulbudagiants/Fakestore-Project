@@ -6,6 +6,6 @@
 
 @layer base {
   :root {
-    @apply font-poppins font-regular text-white;
+    @apply font-poppins font-regular bg-black text-white;
   }
 }

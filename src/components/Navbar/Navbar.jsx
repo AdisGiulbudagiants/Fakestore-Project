@@ -8,14 +8,17 @@ const Navbar = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className="relative z-10 flex justify-center  h-[100px]">
+    <div className="relative  z-10 flex justify-center h-[100px]">
       <div className="flex items-center">
-        <button onClick={() => dispatch(setIsOpen())} className="z-30 absolute right-20 flex">
+        <label className="flex text-[2rem]">
+          <PageLink to="/" name="FAKESTORE" />
+        </label>
+        <button onClick={() => dispatch(setIsOpen())} className="z-30 fixed right-20 flex">
           DropDown
         </button>
       </div>
       {isOpen && (
-        <nav className="w-[100%] h-[100dvh] z-20 flex flex-col flex-wrap items-center justify-evenly bg-red-600">
+        <nav className=" fixed w-[100%] h-[100dvh] top-0 left-0 z-20 flex flex-col items-center justify-evenly bg-red-600">
           <label className="flex text-[2rem]">
             <PageLink click={() => dispatch(setIsOpen())} to="/" name="FAKESTORE" />
           </label>

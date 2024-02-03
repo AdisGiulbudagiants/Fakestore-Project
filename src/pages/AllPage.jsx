@@ -1,35 +1,51 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import {
-  selectProducts,
-  selectisLoadingViaAPI,
   fetchAllProducts,
+  selectisLoadingViaAPI,
+  selectProducts,
+  selectLimit,
+  addLimit,
 } from '../redux/slices/allPageSlice'
+import ProductCard from '../components/Product/ProductCard.jsx'
 
 const AllPage = () => {
   const products = useSelector(selectProducts)
   const isLoading = useSelector(selectisLoadingViaAPI)
+  const limit = useSelector(selectLimit)
   const dispatch = useDispatch()
+
+  const LINK = `https://api.escuelajs.co/api/v1/products?offset=0&limit=${limit}`
 
   useEffect(() => {
     try {
-      dispatch(fetchAllProducts('https://api.escuelajs.co/api/v1/products'))
+      dispatch(fetchAllProducts(LINK))
     } catch (error) {
-      console.log(error.message)
+      console.error(error)
     }
-  }, [])
+  }, [limit])
+
+  const fetchData = () => {
+    dispatch(addLimit(8))
+    try {
+      dispatch(fetchAllProducts(LINK))
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
-    <div className="bg-black">
-      {products.map(({ title, price, description, images }) => {
-        return (
-          <>
-            <h1>{title}</h1>
-            <h1>{price}</h1>
-          </>
-        )
-      })}
-    </div>
+    <InfiniteScroll
+      dataLength={products.length}
+      hasMore={isLoading}
+      next={fetchData}
+      loader={<h1 className="text-center">LOADING...</h1>}
+    >
+      <div className=" p-5 grid grid-cols-4 gap-5 mx-auto bg-yellow">
+        <ProductCard />
+      </div>
+    </InfiniteScroll>
   )
 }
 

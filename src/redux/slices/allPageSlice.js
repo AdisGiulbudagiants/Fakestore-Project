@@ -5,6 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const initialState = {
   products: [],
   isLoadingViaAPI: false,
+  limit: 8,
 }
 
 export const fetchAllProducts = createAsyncThunk(
@@ -23,7 +24,11 @@ export const fetchAllProducts = createAsyncThunk(
 const allPageSlice = createSlice({
   name: 'AllPage',
   initialState,
-  reducers: {},
+  reducers: {
+    addLimit: (state, action) => {
+      state.limit = state.limit + action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllProducts.pending, (state) => {
       state.isLoadingViaAPI = true
@@ -38,7 +43,11 @@ const allPageSlice = createSlice({
   },
 })
 
+export const { addLimit } = allPageSlice.actions
+
 export const selectProducts = (state) => state.allPage.products
 export const selectisLoadingViaAPI = (state) => state.allPage.isLoadingViaAPI
+export const selectOffset = (state) => state.allPage.offset
+export const selectLimit = (state) => state.allPage.limit
 
 export default allPageSlice.reducer

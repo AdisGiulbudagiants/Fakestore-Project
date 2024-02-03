@@ -4,9 +4,9 @@ import Navbar from '../components/Navbar/Navbar'
 
 const NavbarLayout = () => {
   return (
-    <div className=" bg-purple-700">
-      <Navbar />
-      <Suspense fallback={<h1 className="flex justify-end">Loading...</h1>}>
+    <div className=" ">
+      <Suspense>
+        <Navbar />
         <Outlet />
       </Suspense>
     </div>
