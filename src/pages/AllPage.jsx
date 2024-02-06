@@ -35,6 +35,7 @@ const AllPage = () => {
 
   return (
     <InfiniteScroll dataLength={products.length} next={fetchData} hasMore={true}>
+      <h1 className="mt-5 text-6xl font-semibold flex justify-center">All Products</h1>
       <div className="p-5 grid grid-cols-4 gap-5 mx-auto">
         <ProductCard />
       </div>

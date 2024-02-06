@@ -1,22 +1,30 @@
 /* eslint-disable react/prop-types */
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectProducts } from '../../redux/slices/allPageSlice.js'
+import { addToCart } from '../../redux/slices/cartSlice.js'
+import createProductCardWithQuantity from '../../utils/createProductCardWithQuantity.js'
+import Button from '../Button.jsx'
 
 const ProductCard = () => {
   const products = useSelector(selectProducts)
+  const dispatch = useDispatch()
 
-  return products.map(({ title, id, price, category }) => (
-    <>
-      <div key={id} className="h-[560px] flex flex-col items-center justify-center">
-        <img className="w-[400px]" src={category.image} loading="lazy" alt="picture" />
-        <p>{title}</p>
-        <p>${price.toFixed(2)}</p>
+  function handleAddtoCart(item) {
+    return dispatch(addToCart(createProductCardWithQuantity(item)))
+  }
+
+  return products.map((item) => (
+    <div key={item.id}>
+      <div className="h-[560px] flex flex-col items-center justify-center">
+        <img className="w-[400px]" src={item.images[0]} loading="lazy" alt="picture" />
+        <p>{item.title}</p>
+        <p>${item.price.toFixed(2)}</p>
         <div className="grid gap-2">
-          <button className="border p-2 hover:bg-white hover:text-black">Add to Cart</button>
-          <button className="border p-2 hover:bg-white hover:text-black">Add to Wishlist</button>
+          <Button click={() => handleAddtoCart(item)} name="Add To Cart" />
+          <Button name="Add To Wishlist" />
         </div>
       </div>
-    </>
+    </div>
   ))
 }
 
