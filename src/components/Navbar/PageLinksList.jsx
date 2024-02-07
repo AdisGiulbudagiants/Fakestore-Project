@@ -11,15 +11,15 @@ const PageLinksList = () => {
   return (
     <>
       <label className="flex text-[2rem]">
-        <PageLink click={() => handleSetIsOpen} to="/" name="FAKESTORE" />
+        <PageLink click={() => handleSetIsOpen()} to="/" name="FAKESTORE" />
       </label>
       <div className="flex flex-col gap-4 text-[4rem]">
-        <PageLink click={() => handleSetIsOpen} end to="/" name="All" />
-        <PageLink click={() => handleSetIsOpen} to="/clothes" name="Clothes" />
-        <PageLink click={() => handleSetIsOpen} to="/electronics" name="Electronics" />
-        <PageLink click={() => handleSetIsOpen} to="/furniture" name="Furniture" />
-        <PageLink click={() => handleSetIsOpen} to="/shoes" name="Shoes" />
-        <PageLink click={() => handleSetIsOpen} to="/miscellaneous" name="Miscellaneous" />
+        <PageLink click={() => handleSetIsOpen()} end to="/" name="All" />
+        <PageLink click={() => handleSetIsOpen()} to="/clothes" name="Clothes" />
+        <PageLink click={() => handleSetIsOpen()} to="/electronics" name="Electronics" />
+        <PageLink click={() => handleSetIsOpen()} to="/furniture" name="Furniture" />
+        <PageLink click={() => handleSetIsOpen()} to="/shoes" name="Shoes" />
+        <PageLink click={() => handleSetIsOpen()} to="/miscellaneous" name="Miscellaneous" />
       </div>
     </>
   )

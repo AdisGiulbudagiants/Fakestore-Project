@@ -4,6 +4,7 @@ import { selectProducts } from '../../redux/slices/allPageSlice.js'
 import { addToCart } from '../../redux/slices/cartSlice.js'
 import createProductCardWithQuantity from '../../utils/createProductCardWithQuantity.js'
 import Button from '../Button.jsx'
+import Carousel from './Carousel.jsx'
 
 const ProductCard = () => {
   const products = useSelector(selectProducts)
@@ -16,7 +17,7 @@ const ProductCard = () => {
   return products.map((item) => (
     <div key={item.id}>
       <div className="h-[560px] flex flex-col items-center justify-center">
-        <img className="w-[400px]" src={item.images[0]} loading="lazy" alt="picture" />
+        <Carousel items={item} />
         <p>{item.title}</p>
         <p>${item.price.toFixed(2)}</p>
         <div className="grid gap-2">
