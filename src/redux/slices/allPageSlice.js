@@ -22,7 +22,7 @@ export const fetchAllProducts = createAsyncThunk(
 )
 
 const allPageSlice = createSlice({
-  name: 'AllPage',
+  name: 'allPage',
   initialState,
   reducers: {
     addLimit: (state, action) => {

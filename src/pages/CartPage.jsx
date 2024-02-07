@@ -22,7 +22,7 @@ const CartPage = () => {
   }
 
   return (
-    <div>
+    <>
       <h1 className="mt-5 text-6xl font-semibold flex justify-center">Cart</h1>
       <div className="grid grid-cols-2">
         {cartItems.length === 0 ? (
@@ -50,7 +50,7 @@ const CartPage = () => {
           <Button click={() => handleClearCart()} name="Clear Cart" />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

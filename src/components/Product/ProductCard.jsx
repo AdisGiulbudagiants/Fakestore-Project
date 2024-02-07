@@ -2,9 +2,10 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { selectProducts } from '../../redux/slices/allPageSlice.js'
 import { addToCart } from '../../redux/slices/cartSlice.js'
+import { addToFavorites } from '../../redux/slices/favoritesSlice.js'
 import createProductCardWithQuantity from '../../utils/createProductCardWithQuantity.js'
-import Button from '../Button.jsx'
 import Carousel from './Carousel.jsx'
+import Button from '../Button.jsx'
 
 const ProductCard = () => {
   const products = useSelector(selectProducts)
@@ -12,6 +13,10 @@ const ProductCard = () => {
 
   function handleAddtoCart(item) {
     return dispatch(addToCart(createProductCardWithQuantity(item)))
+  }
+
+  function handleAddToFavorites(item) {
+    return dispatch(addToFavorites(item))
   }
 
   return products.map((item) => (
@@ -22,7 +27,7 @@ const ProductCard = () => {
         <p>${item.price.toFixed(2)}</p>
         <div className="grid gap-2">
           <Button click={() => handleAddtoCart(item)} name="Add To Cart" />
-          <Button name="Add To Wishlist" />
+          <Button click={() => handleAddToFavorites(item)} name="Add To Wishlist" />
         </div>
       </div>
     </div>

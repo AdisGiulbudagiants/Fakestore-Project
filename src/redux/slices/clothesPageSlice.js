@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {}
 
 const clothesPageSlice = createSlice({
-  name: 'AllPage',
+  name: 'clothes',
   initialState,
   reducers: {},
 })
