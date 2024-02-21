@@ -26,13 +26,13 @@ const Carousel = ({ items }) => {
         <button onClick={handlePreviousSlide}>
           <BiChevronLeft
             size={50}
-            className="hover:fill-[#b2b2b2] transition ease-in-out duration-400"
+            className="hover:opacity-40 hover:scale-[1.3] transition ease-in-out duration-400"
           />
         </button>
         <button onClick={handleNextSlide}>
           <BiChevronRight
             size={50}
-            className="hover:fill-[#b2b2b2] transition ease-in-out duration-400"
+            className="hover:opacity-40 hover:scale-[1.3] transition ease-in-out duration-400"
           />
         </button>
       </div>

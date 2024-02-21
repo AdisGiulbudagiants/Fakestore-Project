@@ -21,7 +21,7 @@ const ProductCard = () => {
 
   return products.map((item) => (
     <div key={item.id}>
-      <div className="h-[560px] flex flex-col items-center justify-center">
+      <div className="h-[560px] text-black dark:text-white flex flex-col items-center justify-center">
         <Carousel items={item} />
         <p>{item.title}</p>
         <p>${item.price.toFixed(2)}</p>

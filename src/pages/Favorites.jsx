@@ -21,8 +21,8 @@ const Favorites = () => {
   }
 
   return (
-    <>
-      <h1 className="mt-5 text-6xl font-semibold flex justify-center">Favorite</h1>
+    <div className="dark:bg-black dark:text-white py-5 ">
+      <h1 className="text-6xl font-semibold flex justify-center">Favorite</h1>
       {favoriteItems.length === 0 ? (
         <h1 className="mt-5 text-5xl font-semibold flex justify-center">Add something here</h1>
       ) : (
@@ -47,7 +47,7 @@ const Favorites = () => {
           <Button click={() => handleClearAll()} name="Clear All" />
         </div>
       )}
-    </>
+    </div>
   )
 }
 

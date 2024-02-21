@@ -1,5 +1,7 @@
 import { lazy } from 'react'
+import { useSelector } from 'react-redux'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { selectIsDark } from './redux/slices/navbarSlice.js'
 const NavbarLayout = lazy(() => import('./layouts/NavbarLayout.jsx'))
 const AllPage = lazy(() => import('./pages/AllPage.jsx'))
 const CartPage = lazy(() => import('./pages/CartPage.jsx'))
@@ -12,9 +14,10 @@ const MiscellaneousPage = lazy(() => import('./pages/MiscellaneousPage.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 function App() {
+  const isDark = useSelector(selectIsDark)
   return (
     <BrowserRouter>
-      <div>
+      <div className={isDark ? 'dark' : ''}>
         <Routes>
           <Route path="/" element={<NavbarLayout />}>
             <Route index path="/" element={<AllPage />} />

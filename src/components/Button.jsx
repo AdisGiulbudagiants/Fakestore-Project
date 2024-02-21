@@ -2,7 +2,7 @@
 const Button = ({ style, name, click, type = 'button' }) => {
   return (
     <button
-      className={`${style} border p-2 hover:bg-white hover:text-black transition ease-in-out duration-400`}
+      className={`${style} border dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black border-black  hover:bg-black hover:text-white p-2 transition ease-in-out duration-400`}
       type={type}
       onClick={click}
     >
