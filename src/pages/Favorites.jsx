@@ -5,6 +5,8 @@ import {
   clearAll,
   deleteItem,
 } from '../redux/slices/favoritesSlice'
+import { addToCart } from '../redux/slices/cartSlice'
+import createProductCardWithQuantity from '../utils/createProductCardWithQuantity'
 import Button from '../components/Button'
 
 const Favorites = () => {
@@ -16,12 +18,16 @@ const Favorites = () => {
     return dispatch(clearAll())
   }
 
+  function handleAddToCart(item) {
+    return dispatch(addToCart(createProductCardWithQuantity(item)))
+  }
+
   function handleDeleteItem(item) {
     return dispatch(deleteItem(item))
   }
 
   return (
-    <div className="dark:bg-black dark:text-white py-5 ">
+    <div className="dark:bg-black dark:text-white bg-white text-black py-5 ">
       <h1 className="text-6xl font-semibold flex justify-center">Favorite</h1>
       {favoriteItems.length === 0 ? (
         <h1 className="mt-5 text-5xl font-semibold flex justify-center">Add something here</h1>
@@ -34,7 +40,10 @@ const Favorites = () => {
                   <img className="w-[280px]" src={item.images[0]} loading="lazy" alt="picture" />
                   <p>{item.title}</p>
                   <p>Price: ${item.price.toFixed(2)}</p>
-                  <Button click={() => handleDeleteItem(item)} name="Delete Item" />
+                  <div className="grid gap-1">
+                    <Button click={() => handleAddToCart(item)} name="Add To Cart" />
+                    <Button click={() => handleDeleteItem(item)} name="Delete Item" />
+                  </div>
                 </div>
               </div>
             )

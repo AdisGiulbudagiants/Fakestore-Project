@@ -22,8 +22,8 @@ const CartPage = () => {
   }
 
   return (
-    <>
-      <h1 className="mt-5 text-6xl font-semibold flex justify-center">Cart</h1>
+    <div className="dark:bg-black dark:text-white bg-white text-black py-5">
+      <h1 className="text-6xl font-semibold flex justify-center">Cart</h1>
       <div className="grid grid-cols-2">
         {cartItems.length === 0 ? (
           <h1 className="text-5xl font-semibold flex justify-center items-center">Empty</h1>
@@ -44,13 +44,13 @@ const CartPage = () => {
             })}
           </div>
         )}
-        <div className="p-5 mx-auto">
+        <div className="mx-auto">
           <h1>Total Quantity: {cartTotalQuantity}</h1>
           <h1>Total Amount: ${cartTotalAmount}</h1>
           <Button click={() => handleClearCart()} name="Clear Cart" />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

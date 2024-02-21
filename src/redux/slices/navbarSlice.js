@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   isOpen: false,
-  isDark: false,
+  isDark: true,
 }
 
 const navbarSlice = createSlice({

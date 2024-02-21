@@ -9,3 +9,7 @@
     @apply font-poppins font-regular bg-white dark:bg-black dark:text-white;
   }
 }
+
+body {
+  @apply h-[100vh] bg-black;
+}
